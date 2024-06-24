@@ -135,12 +135,12 @@ def imprimir_alumnos_aprobados(calificaciones):
         for alumno in calificaciones:
             lista_imp = []
             lista_imp.append(alumno['Apellidos'])
-            lista_imp.append(alumno['Apellidos'])
-            lista_imp.append(alumno['Apellidos'])
-            lista_imp.append(alumno['Apellidos'])
-            lista_imp.append(alumno['Apellidos'])
-            lista_imp.append(alumno['Apellidos'])
-            lista_imp.append(alumno['Apellidos'])
+            lista_imp.append(alumno['Nombre'])
+            lista_imp.append(alumno['Asistencia'])
+            lista_imp.append(alumno['Parcial1'])
+            lista_imp.append(alumno['Parcial2'])
+            lista_imp.append(alumno['Practicas'])
+            lista_imp.append(alumno['Nota Final'])
             escritor_csv.writerow(lista_imp)
             
     return
