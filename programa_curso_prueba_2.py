@@ -51,7 +51,7 @@ def recibir_calificaciones():
                 OrdinarioPracticas = float(linea[8].replace(',','.'))
                 lista.append({
                     'Apellidos':Apellidos,
-                    'nombre': Nombre,
+                    'Nombre': Nombre,
                     'Asistencia': Asistencia,
                     'Parcial1': Parcial1,
                     'Parcial2': Parcial2,
