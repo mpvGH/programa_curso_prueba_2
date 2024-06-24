@@ -36,7 +36,7 @@ def recibir_calificaciones():
         pos = 0
         for linea in lector_csv:
             if pos != 0:
-                for i in range(2, len(lector_csv)):
+                for i in range(2, len(linea)):
                     if linea[i] == "":
                         linea[i] = "0,0"
                         # Apellidos	Nombre	Asistencia	Parcial1	Parcial2	Ordinario1	Ordinario2	Practicas	OrdinarioPracticas
