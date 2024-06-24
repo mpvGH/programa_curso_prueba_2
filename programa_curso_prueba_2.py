@@ -116,7 +116,7 @@ def status_final(calificaciones):
     lista_ap = []
     lista_rp = []
     for alumno in calificaciones:
-        alumno['Asistencia'] = alumno['Asistencia'].replace("%", "")
+        alumno['Asistencia'] = alumno['Asistencia']
         aprobado = False
         if alumno['Asistencia'] >= 75 and alumno['Parcial1'] >= 4 and alumno['Parcial2'] >= 4 and alumno['Practicas'] >= 4 and alumno['NotaFinal'] >= 5:
             aprobado = True
