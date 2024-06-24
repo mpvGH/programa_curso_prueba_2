@@ -116,7 +116,6 @@ def status_final(calificaciones):
     lista_ap = []
     lista_rp = []
     for alumno in calificaciones:
-        alumno['Asistencia'] = alumno['Asistencia']
         aprobado = False
         if alumno['Asistencia'] >= 75 and alumno['Parcial1'] >= 4 and alumno['Parcial2'] >= 4 and alumno['Practicas'] >= 4 and alumno['NotaFinal'] >= 5:
             aprobado = True
@@ -127,7 +126,7 @@ def status_final(calificaciones):
     return lista_ap, lista_rp
 
 def imprimir_alumnos_aprobados(calificaciones):
-    ruta_final = input("Ingrese la ruta para el archivo que contiene los datos sobre los alumnos aprobados: ")
+    ruta_final = input("Ingrese la ruta para el archivo que que va a contener los datos sobre los alumnos aprobados: ")
     with open(ruta_final, "w", newline = "") as archivo_final:
         escritor_csv = csv.writer(archivo_final, delimiter = ";")
         escritor_csv.writerow(['Apellidos', 'Nombre', 'Asistencia', 'Parcial1', 'Parcial2', 'Practicas', 'Nota Final'])
