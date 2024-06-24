@@ -42,21 +42,13 @@ def recibir_calificaciones():
                         # Apellidos	Nombre	Asistencia	Parcial1	Parcial2	Ordinario1	Ordinario2	Practicas	OrdinarioPracticas
                 Apellidos = linea[0]
                 Nombre = linea[1]
-                Asistencia = linea[2]
-                
-                def numeros_punto_flotante(nota):
-                    if len(nota) == 2:
-                        normalizacion = nota/10
-                    else:
-                        normalizacion = nota
-                    return normalizacion
-                
-                Parcial1 = numeros_punto_flotante(linea[3])
-                Parcial2 = numeros_punto_flotante(linea[4])
-                Ordinario1 = numeros_punto_flotante(linea[5])
-                Ordinario2 = numeros_punto_flotante(linea[6])
-                Practicas = numeros_punto_flotante(linea[7])
-                OrdinarioPracticas = numeros_punto_flotante(linea[8])
+                Asistencia = float(linea[2].replace('%',''))
+                Parcial1 = float(linea[3].replace(',','.'))
+                Parcial2 = float(linea[4].replace(',','.'))
+                Ordinario1 = float(linea[5].replace(',','.'))
+                Ordinario2 = float(linea[6].replace(',','.'))
+                Practicas = float(linea[7].replace(',','.'))
+                OrdinarioPracticas = float(linea[8].replace(',','.'))
                 lista.append({
                     'Apellidos':Apellidos,
                     'nombre': Nombre,
