@@ -114,3 +114,46 @@ def añadir_nota_final(calificaciones):
             'NotaFinal':nota_final
         })
     return lista
+
+# 3.	Una función que reciba una lista de diccionarios como la que devuelve la función anterior 
+# y devuelva dos listas, una con los alumnos aprobados y otra con los alumnos suspensos. 
+# Para aprobar el curso, la asistencia tiene que ser mayor o igual que el 75%, la nota de los 
+# exámenes parciales y de prácticas mayor o igual que 4 y la nota final mayor o igual que 5.
+
+def status_final(calificaciones):
+    lista_ap = []
+    lista_rp = []
+    for alumno in calificaciones:
+        alumno['Asistencia'] = alumno['Asistencia'].replace("%", "")
+        aprobado = False
+        if alumno['Asistencia'] >= 75 and alumno['Parcial1'] >= 4 and alumno['Parcial2'] >= 4 and alumno['Practicas'] >= 4 and alumno['NotaFinal'] >= 5:
+            aprobado = True
+        if aprobado:
+            lista_ap.append(alumno)
+        else:
+            lista_rp.append(alumno)
+    return lista_ap, lista_rp
+
+def imprimir_alumnos_aprobados(calificaciones):
+    ruta_final = input("Ingrese la ruta para el archivo que contiene los datos sobre los alumnos aprobados")
+    with open(ruta_final, "w", newline = "") as archivo_final:
+        escritor_csv = csv.writer(archivo_final, delimiter = ";")
+        escritor_csv.writerow(['Apellidos', 'Nombre', 'Asistencia', 'Parcial1', 'Parcial2', 'Practicas', 'Nota Final'])
+        
+        for alumno in calificaciones:
+            lista_imp = []
+            lista_imp.append(alumno['Apellidos'])
+            lista_imp.append(alumno['Apellidos'])
+            lista_imp.append(alumno['Apellidos'])
+            lista_imp.append(alumno['Apellidos'])
+            lista_imp.append(alumno['Apellidos'])
+            lista_imp.append(alumno['Apellidos'])
+            lista_imp.append(alumno['Apellidos'])
+            escritor_csv.writerow(lista_imp)
+            
+    return
+
+calificacion = recibir_calificaciones()
+calificacion_final = añadir_nota_final(calificacion)
+alumnos_aprobados, alumnos_reprobados = status_final(calificacion_final)
+imprimir_alumnos_aprobados(alumnos_aprobados)
