@@ -71,3 +71,46 @@ def recibir_calificaciones():
             else:
                 pos = 1
     return lista
+
+# 2.	Una función que reciba una lista de diccionarios como la que devuelve la función anterior 
+# y añada a cada diccionario un nuevo par con la nota final del curso. 
+# El peso de cada parcial de teoría en la nota final es de un 30% mientras que 
+# el peso del examen de prácticas es de un 40%.
+
+def añadir_nota_final(calificaciones):
+    lista = []
+    for alumno in calificaciones:
+        # Nos cercioramos de que las notas que tomaremos en cuenta corresponden  a las últimas rendidas para los casos de repetición de pruebas. (Ordinario1; Ordinario2; OrdinarioPracticas)
+        if alumno['Ordinario1'] > 0:
+            parcial1 = alumno["Ordinario1"]
+        else:
+            parcial1 = alumno['Parcial1']
+            
+        if alumno['Ordinario2'] > 0:
+            parcial2 = alumno["Ordinario2"]
+        else:
+            parcial2 = alumno['Parcial2']
+            
+        if alumno['OrdinarioPracticas'] > 0:
+            practicas = alumno["OrdinarioPracticas"]
+        else:
+            practicas = alumno['Practicas']
+            
+        alumno_final_1 = parcial1
+        alumno_final2 = parcial2
+        alumno_practicas = practicas
+        nota_final = parcial1*30/100 + parcial2*30/100 + practicas*40/100
+        alumno_apellidos = alumno['Apellidos']
+        alumno_nombre = alumno['Nombre']
+        alumno_asistencia = alumno['Asistencia']
+        
+        lista.append({
+            'Apellidos':alumno_apellidos,
+            'Nombre':alumno_nombre,
+            'Asistencia':alumno_asistencia,
+            'Parcial1':alumno_final_1,
+            'Parcial2':alumno_final2,
+            'Practicas':alumno_practicas,
+            'NotaFinal':nota_final
+        })
+    return lista
