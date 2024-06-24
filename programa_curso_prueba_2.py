@@ -127,7 +127,7 @@ def status_final(calificaciones):
     return lista_ap, lista_rp
 
 def imprimir_alumnos_aprobados(calificaciones):
-    ruta_final = input("Ingrese la ruta para el archivo que contiene los datos sobre los alumnos aprobados")
+    ruta_final = input("Ingrese la ruta para el archivo que contiene los datos sobre los alumnos aprobados: ")
     with open(ruta_final, "w", newline = "") as archivo_final:
         escritor_csv = csv.writer(archivo_final, delimiter = ";")
         escritor_csv.writerow(['Apellidos', 'Nombre', 'Asistencia', 'Parcial1', 'Parcial2', 'Practicas', 'Nota Final'])
@@ -140,7 +140,7 @@ def imprimir_alumnos_aprobados(calificaciones):
             lista_imp.append(alumno['Parcial1'])
             lista_imp.append(alumno['Parcial2'])
             lista_imp.append(alumno['Practicas'])
-            lista_imp.append(alumno['Nota Final'])
+            lista_imp.append(alumno['NotaFinal'])
             escritor_csv.writerow(lista_imp)
             
     return
